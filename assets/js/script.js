@@ -46,8 +46,10 @@ var saveTasks = function() {
 };
 
 $(".list-group").on("click", "p", function() {
-  console.log(this);
-})
+  var text = $(this)
+  .text()
+  .trim();
+});
 
 
 
