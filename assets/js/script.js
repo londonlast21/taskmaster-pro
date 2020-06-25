@@ -117,7 +117,7 @@ $(".list-group").on("blur", "input[type='text']", function () {
     .index();
 
   // update taks in array and re-save to localStorage
-  tasks[status][index].date = date;
+  //tasks[status][index].date = date;
   saveTasks;
 
   // recreate span element with bootstrap classes
