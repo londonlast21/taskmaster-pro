@@ -117,7 +117,7 @@ $(".list-group").on("blur", "input[type='text']", function () {
     .index();
 
   // update taks in array and re-save to localStorage
-  //tasks[status][index].date = date;
+  tasks[status][index].date = date;
   saveTasks;
 
   // recreate span element with bootstrap classes
@@ -227,4 +227,19 @@ $(".card .list-group").sortable({
       saveTasks();
     
 }
+});
+
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function(event, ui) {
+    ui.draggable.remove();
+    console.log("drop");
+  },
+  over: function(event, ui) {
+    console.log("over");
+  },
+  out: function(event, ui) {
+    console.log("out");
+  }
 });
