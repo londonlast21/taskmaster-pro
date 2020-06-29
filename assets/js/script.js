@@ -205,11 +205,13 @@ tolerance: "pointer",
  helper: "clone",
  activate: function(event) {
    $(this).addClass("dropover");
-   $(".bottom-trash").addClass(".bottom-trash-drag");
+   $(".bottom-trash").addClass("bottom-trash-drag");
+   
  },
  deactivate: function(event) {
    $(this).removeClass("dropover");
-   $(".bottom-trash").removeClass(".bottom-trash-drag");
+   $(".bottom-trash").removeClass("bottom-trash-drag");
+  
  },
  over: function(event) {
 
@@ -252,21 +254,31 @@ tolerance: "pointer",
 }
 });
 $("#trash").droppable({
- accept: ".card .list-group-item",
- tolerance: "touch",
- 
- drop: function(event, ui) {
-   ui.draggable.remove();
-   console.log("drop");
- },
- over: function(event, ui) {
-   console.log("over");
-   $(".bottom-trash").addClass(".bottom-trash-active");
- },
- out: function(event, ui) {
-   console.log("out");
-   $(".bottom-trash").removeClass(".bottom-trash-active")
- }
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+
+  activate: function (event) {
+    $(this).addClass("dropover");
+    //Show the thrash droppable
+  },
+  deactivate: function (event) {
+    //Hide the thrash dropable
+    $(this).removeClass("dropover");
+  },
+
+  drop: function (event, ui) {
+    ui.draggable.remove();
+    console.log("drop");
+    $(this).removeClass("dropover");
+  },
+  over: function (event, ui) {
+    console.log("over");
+    $("bottom-trash").addClass("bottom-trash-active");
+  },
+  out: function (event, ui) {
+    console.log("out");
+    $("bottom-trash").removeClass("bottom-trash-active");
+  },
 });
 
 // date picker
